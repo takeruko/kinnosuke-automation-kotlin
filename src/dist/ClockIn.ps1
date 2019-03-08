@@ -15,11 +15,9 @@ function IsClockedIn() {
 }
 if (-Not(IsClockedIn)) {
     if (AskClockIn) {
-        echo "‚Í‚¢"
         java.exe -jar $JAR_PATH --config=$INI_PATH --sqlite=$DB_PATH IN
     }
     else {
-        echo "‚¢‚¢‚¦"
         java.exe -jar $JAR_PATH --config=$INI_PATH --sqlite=$DB_PATH --without-clock IN
     }
 }
