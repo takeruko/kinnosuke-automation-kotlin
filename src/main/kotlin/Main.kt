@@ -230,8 +230,10 @@ class KinnosukeAutomator(val dbManager: TimeRecordDbManager,
 
         // ID, パスワードを入力してログインボタンクリック
         val idBox = driver.findElement(By.id("y_logincd"))
+        idBox.clear()
         idBox.sendKeys(id)
         val passwordBox = driver.findElement(By.id("password"))
+        passwordBox.clear()
         passwordBox.sendKeys(password)
         val loginButton = driver.findElement(By.id("id_passlogin"))
         loginButton.click()
