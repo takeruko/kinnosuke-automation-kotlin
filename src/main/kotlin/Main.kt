@@ -309,7 +309,7 @@ fun main(args: Array<String>) = mainBody {
     val browser = ini.getValue("Selenium", "BROWSER")
     val executablePath = ini.getValue("Selenium", "DRIVER_PATH")
 
-    val mgr = TimeRecordDbManager(argParser.sqliteDbPath, argParser.isDebug)
+    val mgr = TimeRecordDbManager(argParser.sqliteDbPath, isDoRecord = !argParser.isDebug)
 
     val clockType = ClockType.valueOf(argParser.recordType)
 
@@ -329,7 +329,7 @@ fun main(args: Array<String>) = mainBody {
             browser = browser, executablePath = executablePath,
             topPageUrl = url,
             isHideBrowser = argParser.isHideBrowser,
-            isDoClock = argParser.isDebug
+            isDoClock = !argParser.isDebug
         )
         automator.clock(clockType)
         automator.close()
